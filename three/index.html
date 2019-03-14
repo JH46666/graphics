@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>three</title>
+    <style>
+        *{
+            margin:0;
+            padding:0
+
+        }
+    
+    
+    
+    </style>
+</head>
+<body>
+    <script src="./three.js"></script>
+    <script src="./GLTFLoader.js"></script>
+    <script>
+    var container;
+    var carma, scene, render;
+    function init(){
+        container = document.createElement('div');
+        document.body.appendChild(container);
+
+        //创造眼睛
+        carma = new THREE.PerspectiveCamera(45, window.innerWidth/ window.innerHeight)
+        //创建一个大千世界
+        scene = new THREE.Scene();
+
+        //创造模型加载器
+        var loader = new THREE.GLTFLoader().setPath('models/')
+        //把眼睛看到的世界绘制进去html
+        render = new THREE.WebGLRenderer({
+            antialias: true
+        })
+        render.setPixelRatio(window.devicePixelRatio)
+        render.setSize(window.innerWidth ,window.innerHeight)
+        container.appendChild(render.domElement)
+    }
+    init()
+    
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>
